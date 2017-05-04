@@ -8,7 +8,9 @@ library(dplyr)
 # For this exercise you'll be working with the `diamonds` data set included in the ggplot2 library
 # Use `?diamonds` to get more information about this data set (including the column descriptions
 # Also check the _column names_ and the _number of rows_ in the data set
-
+?diamonds
+colnames(diamonds)
+nrow(diamonds)
 
 # This data set has a lot of rows. To make things a bit more readable,
 # use dplyr's `sample_n()` function to get a random 1000 rows from the data set
@@ -42,11 +44,14 @@ ggplot(data = diamonds.sample) +
 
 # Draw a scatter plot for `diamonds.sample` of `price` by `carat`, where each
 # point has an aesthetic _shape_ based on the diamond's `cut`.
+ggplot(data = diamonds.sample) +
+  geom_point(mapping = aes(x = carat, y = price, shape = cut))
 
 
 # Draw a scatter plot for `diamonds.sample` of *`cut`* by `carat`, where each
 # point has an aesthetic _size_ based on the diamond's *`price`*
-
+ggplot(data = diamonds.sample) +
+  geom_point(mapping = aes(x = cut, y = carat, size = price))
 
 # Try coloring the above plot based on the diamond's price!
 
